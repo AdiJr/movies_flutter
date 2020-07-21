@@ -152,26 +152,25 @@ class _SignInFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          FlatButton(
-            padding: EdgeInsets.all(10),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              if (buttonEnabled) {
-                _singInWithFirebase();
-              }
-            },
-            child: Container(
-              decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+          Container(
+            margin: EdgeInsets.only(top: 30.0),
+            child: ButtonTheme(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40)),
+              child: RaisedButton(
+                onPressed: () {
+                  if (buttonEnabled) {
+                    _singInWithFirebase();
+                  }
+                },
                 color: buttonEnabled ? Colors.pink : Colors.pink[50],
+                padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                child: Text('Sign in',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w300)),
               ),
-              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-              child: Text('Sign in',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.w300)),
             ),
           ),
         ],

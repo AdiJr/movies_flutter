@@ -8,12 +8,8 @@ import 'package:movies/screens/home/web/appBar.dart';
 class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CustomAppBar(),
-        mapScreenWeb(),
-      ],
-    );
+    return mapScreenWeb();
+      mapScreenWeb();
   }
 }
 
