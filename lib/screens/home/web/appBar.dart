@@ -1,13 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/screens/camera/camera_screen.dart';
-import 'package:movies/screens/login/sign_in_screen.dart';
-import 'package:movies/screens/map/map_screen.dart';
+import 'package:movies/screens/login/sign_in_screen.dart' deferred as signIn;
+import 'package:movies/screens/map/map_screen.dart' deferred as map;
 
 import 'default_button.dart';
 import 'menu_item.dart';
 
+
 class CustomAppBar extends StatelessWidget {
+  Future loadSignInScreen(context) async {
+    await signIn.loadLibrary();
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => signIn.SignInScreen())
+    );
+  }
+
+  Future loadMapScreen(context) async {
+    await map.loadLibrary();
+    Navigator.push(
+        MaterialPageRoute(builder: (context) => map.MapScreen())
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,28 +59,13 @@ class CustomAppBar extends StatelessWidget {
           MenuItem(
             title: "Find Shop",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MapScreen()),
-              );
+              loadMapScreen(context);
             },
           ),
           MenuItem(
             title: "Your Account",
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SignInScreen()),
-              );
-            },
-          ),
-          MenuItem(
-            title: "Camera",
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CameraScreen()),
-              );
+              loadSignInScreen(context);
             },
           ),
         ],
