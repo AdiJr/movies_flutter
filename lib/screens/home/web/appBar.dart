@@ -19,6 +19,7 @@ class CustomAppBar extends StatelessWidget {
   Future loadMapScreen(context) async {
     await map.loadLibrary();
     Navigator.push(
+        context,
         MaterialPageRoute(builder: (context) => map.MapScreen())
     );
   }
