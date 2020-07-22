@@ -20,7 +20,7 @@ class BodyWeb extends StatelessWidget {
         children: <Widget>[
           BackdropAndRating(size: size, movie: movie),
           //SizedBox(height: defaultPadding / 2),
-          //TitleDurationAndFabBtn(movie: movie),
+          TitleDurationAndFabBtn(movie: movie),
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: defaultPadding / 2,

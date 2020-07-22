@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movies/models/movie.dart';
-
 import '../../../constants.dart';
 
 class TitleDurationAndFabBtn extends StatelessWidget {
