@@ -19,8 +19,8 @@ class BodyWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           BackdropAndRating(size: size, movie: movie),
-          SizedBox(height: defaultPadding / 2),
-          TitleDurationAndFabBtn(movie: movie),
+          //SizedBox(height: defaultPadding / 2),
+          //TitleDurationAndFabBtn(movie: movie),
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: defaultPadding / 2,
