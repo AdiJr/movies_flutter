@@ -3,13 +3,22 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:google_maps/google_maps.dart';
-import 'package:movies/screens/home/web/appBar.dart';
 
-class MapScreen extends StatelessWidget {
+class MapScreenWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return mapScreenWeb();
-      mapScreenWeb();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Find Store',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.pink,
+      ),
+      body: mapScreenWeb(),
+    );
   }
 }
 
@@ -17,7 +26,7 @@ Widget mapScreenWeb() {
   String htmlId = "6";
 
   ui.platformViewRegistry.registerViewFactory(htmlId, (int viewId) {
-    final latLang = LatLng(12.9007616, 77.6568832);
+    final latLang = LatLng(51.509865, -0.118092);
 
     final mapOptions = MapOptions()
       ..zoom = 11
