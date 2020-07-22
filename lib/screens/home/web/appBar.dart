@@ -42,15 +42,11 @@ class CustomAppBar extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          Image(
-            image: AssetImage('assets/images/tmdb_logo.jpg'),
-            height: 25,
-          ),
           SizedBox(width: 5),
           Text(
             "MOVIES",
             style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           Spacer(),
           DefaultButton(
