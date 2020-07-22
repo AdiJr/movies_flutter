@@ -26,12 +26,13 @@ Widget mapScreenWeb() {
   String htmlId = "6";
 
   ui.platformViewRegistry.registerViewFactory(htmlId, (int viewId) {
-    final latLang = LatLng(51.509865, -0.118092);
+    final latLang = LatLng(52.237049, 21.017532);
 
     final mapOptions = MapOptions()
       ..zoom = 11
       ..tilt = 90
       ..center = latLang;
+
     final elem = DivElement()
       ..id = htmlId
       ..style.width = "100%"
@@ -39,12 +40,9 @@ Widget mapScreenWeb() {
       ..style.border = "none";
 
     final map = GMap(elem, mapOptions);
+
     Marker(MarkerOptions()
       ..position = latLang
-      ..map = map
-      ..title = 'My position');
-    Marker(MarkerOptions()
-      ..position = LatLng(12.9557616, 77.7568832)
       ..map = map
       ..title = 'My position');
 
