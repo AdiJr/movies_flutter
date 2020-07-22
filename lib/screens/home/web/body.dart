@@ -9,7 +9,6 @@ class BodyWeb extends StatelessWidget {
   final List<Result> movie;
 
   const BodyWeb({Key key, this.movie}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

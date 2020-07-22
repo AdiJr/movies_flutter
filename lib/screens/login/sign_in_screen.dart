@@ -1,9 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/screens/login/sign_up_screen.dart';
+import 'package:movies/screens/login/sign_up_screen.dart' deferred as signUp;
 
 class SignInScreen extends StatelessWidget {
+
+  Future loadSignUpScreen(context) async {
+    await signUp.loadLibrary();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => signUp.SignUpScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +45,7 @@ class SignInScreen extends StatelessWidget {
                 ),
                 FlatButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()),
-                    );
+                    loadSignUpScreen(context);
                   },
                   child: Text("Sign up"),
                 ),
@@ -146,26 +152,25 @@ class _SignInFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          FlatButton(
-            padding: EdgeInsets.all(10),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              if (buttonEnabled) {
-                _singInWithFirebase();
-              }
-            },
-            child: Container(
-              decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+          Container(
+            margin: EdgeInsets.only(top: 30.0),
+            child: ButtonTheme(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40)),
+              child: RaisedButton(
+                onPressed: () {
+                  if (buttonEnabled) {
+                    _singInWithFirebase();
+                  }
+                },
                 color: buttonEnabled ? Colors.pink : Colors.pink[50],
+                padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
+                child: Text('Sign in',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w300)),
               ),
-              padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
-              child: Text('Sign in',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.w300)),
             ),
           ),
         ],

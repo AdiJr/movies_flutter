@@ -19,12 +19,12 @@ class BodyWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           BackdropAndRating(size: size, movie: movie),
-          SizedBox(height: defaultPadding / 2),
+          SizedBox(height: 100),
           TitleDurationAndFabBtn(movie: movie),
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: defaultPadding / 2,
-              horizontal: defaultPadding,
+              horizontal: 400.0,
             ),
             child: Text(
               "Plot Overview",
@@ -32,12 +32,14 @@ class BodyWeb extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+            padding: const EdgeInsets.symmetric(horizontal: 400.0, vertical: 30),
             child: Text(
               movie.overview,
               style: TextStyle(
                 color: Color(0xFF737599),
-                  fontSize: 17
+                fontSize: 17,
+                height: 2.0,
+                wordSpacing: 2,
               ),
             ),
           ),

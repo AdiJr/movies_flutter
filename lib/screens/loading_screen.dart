@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:movies/services/movieAPI.dart';
-
-import 'home/home_screen.dart';
+import 'package:movies/services/movieAPI.dart' deferred as movieAPI;
+import 'home/home_screen.dart' deferred as homeScreen;
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -19,11 +18,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getMovieData() async {
-    var movieData = await MovieModel().getNowPlaying();
+    await movieAPI.loadLibrary();
+    var movieData = await movieAPI.MovieModel().getNowPlaying();
+    moveToHomeScreen(context, movieData);
+  }
+
+  Future moveToHomeScreen(context, movieData) async {
+    await homeScreen.loadLibrary();
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
-        return HomeScreen(
+        return homeScreen.HomeScreen(
           movieData: movieData,
         );
       }),
