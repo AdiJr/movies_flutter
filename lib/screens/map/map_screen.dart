@@ -19,7 +19,7 @@ class MapScreen extends StatelessWidget {
         } else {
           return Scaffold(
             backgroundColor: Colors.white,
-            body: mapScreenWeb(),
+            body: MapScreenWeb(),
           );
         }
       },
